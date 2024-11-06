@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="loading.gif">loader.gif</file>
+        <file>avatar_login.png</file>
+        <file>credits.html</file>
+        <file>logo.png</file>
+        <file>notify_bg.png</file>
+        <file>notify_bg_inactive.png</file>
+        <file>logo_16.png</file>
+        <file>logo_32.png</file>
+        <file>logo_48.png</file>
+        <file>logo_128.png</file>
+        <file>logo_256.png</file>
+        <file>logo_512.png</file>
+        <file>wiznote.png</file>
+        <file>searching.gif</file>
+        <file>logo_64.png</file>
+    </qresource>
+</RCC>

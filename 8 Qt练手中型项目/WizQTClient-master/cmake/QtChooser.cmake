@@ -1,0 +1,57 @@
+find_package(Qt5 REQUIRED Core Widgets LinguistTools Xml Network PrintSupport)
+get_filename_component(qt_binary_dir ${Qt5_DIR}/../../../bin/ ABSOLUTE)
+get_filename_component(qt_translations_dir ${Qt5_DIR}/../../../translations/ ABSOLUTE)
+set(QT_VERSION ${Qt5_VERSION})
+
+set(CMAKE_AUTOMOC ON)
+
+macro(qt_add_translation)
+    set(_files)
+    foreach(_file ${ARGV})
+        if(NOT ${_file} STREQUAL ${ARGV0})
+            list(APPEND _files ${_file})
+        endif()
+    endforeach()
+
+    qt5_add_translation(${ARGV0} ${_files})
+endmacro()
+
+macro(qt_add_ui)
+    set(_files)
+    foreach(_file ${ARGV})
+        if(NOT ${_file} STREQUAL ${ARGV0})
+            list(APPEND _files ${_file})
+        endif()
+    endforeach()
+
+    qt5_wrap_ui(${ARGV0} ${_files})
+endmacro()
+
+macro(qt_add_resources)
+    set(_files)
+    foreach(_file ${ARGV})
+        if(NOT ${_file} STREQUAL ${ARGV0})
+            list(APPEND _files ${_file})
+        endif()
+    endforeach()
+    message(STATUS ${_files})
+
+    qt5_add_resources(${ARGV0} ${_files})
+endmacro()
+
+macro(qt_use_modules)
+    find_package(Qt5 REQUIRED WebEngine WebEngineWidgets WebSockets WebChannel)
+    if(APPLE)
+        find_package(Qt5 REQUIRED MacExtras)
+        target_link_libraries(${ARGV0} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Xml Qt5::Network Qt5::PrintSupport Qt5::WebEngine Qt5::WebEngineWidgets Qt5::WebSockets Qt5::WebChannel Qt5::MacExtras)
+    else(APPLE)
+        target_link_libraries(${ARGV0} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Xml Qt5::Network Qt5::PrintSupport Qt5::WebEngine Qt5::WebEngineWidgets Qt5::WebSockets Qt5::WebChannel)
+    endif(APPLE)
+endmacro()
+
+macro(qt_suppress_warnings)
+    if(APPLE)
+        set_target_properties(${ARGV0} PROPERTIES
+            COMPILE_FLAGS "-Wno-#warnings")
+    endif(APPLE)
+endmacro()

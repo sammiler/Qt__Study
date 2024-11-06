@@ -1,0 +1,2 @@
+#./bin/wiznote
+./bin/WizNote
