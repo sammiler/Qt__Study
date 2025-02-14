@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>image/C++.PNG</file>
-        <file>image/Qt.PNG</file>
-    </qresource>
-</RCC>
