@@ -1,2 +1,0 @@
-#./bin/wiznote
-./bin/WizNote

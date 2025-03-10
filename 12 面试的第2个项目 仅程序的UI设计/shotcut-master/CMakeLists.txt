@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.13)
-
 if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.20")
   cmake_policy(SET CMP0115 NEW)
 endif()
@@ -29,7 +28,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt6 6.4 REQUIRED
+find_package(Qt6  REQUIRED
   COMPONENTS
   Charts
   Multimedia
@@ -43,7 +42,7 @@ find_package(Qt6 6.4 REQUIRED
   Xml
 )
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  find_package(Qt6 6.4 REQUIRED COMPONENTS DBus)
+  find_package(Qt6 REQUIRED COMPONENTS DBus)
 endif()
 
 find_package(PkgConfig REQUIRED)
