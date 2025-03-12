@@ -117,6 +117,7 @@ public:
 
 #ifdef Q_OS_WIN
 #include <winbase.h>
+#include "../build/src/shotcut_autogen/moc_predefs.h"
         SetDllDirectoryA(appPath.toLocal8Bit());
         CreateMutexA(NULL, FALSE, "Meltytech Shotcut Running Mutex");
 #else

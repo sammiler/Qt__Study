@@ -16,7 +16,6 @@
  */
 import QtQuick
 import org.shotcut.qml
-
 Metadata {
     type: Metadata.Filter
     name: qsTr("Alpha Channel: Adjust")
